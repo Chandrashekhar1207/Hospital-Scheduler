@@ -1,8 +1,7 @@
 import UserModel from "../models/userModel.js";
 import DoctorModel from "../models/docterModel.js";
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
-dotenv.config();
+
 
 export const createUser = async (req , res) =>{
     const { name, email, password,  gender , DOB} = req.body;
@@ -51,7 +50,7 @@ export const loginUser = async (req , res) =>{
             return res.status(422).json({ message: "Invalid credentials" });
         }
 
-        const token = jwt.sign({id : userExist._id} , process.env.JWT_SECRET);
+        const token = jwt.sign({id : userExist._id} , "secret");
 
         return res.status(200).json({message : "User logged in successfully" , token : token ,
         user : {

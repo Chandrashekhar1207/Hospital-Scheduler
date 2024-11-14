@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
-dotenv.config();
+
+
 
 
 const jwtVerify = (req, res, next) => {
@@ -14,7 +14,7 @@ const jwtVerify = (req, res, next) => {
     const jwttoken = splittoken[1];
 
     try {
-        const decoded  = jwt.verify(jwttoken , process.env.JWT_SECRET);
+        const decoded  = jwt.verify(jwttoken , "secret");
 
         if(decoded)
         {

@@ -1,6 +1,5 @@
 import AppointmentModel from "../models/appointment.js";
-import dotenv from "dotenv";
-dotenv.config();
+
 
 
 export const createAppointment = async (req , res) =>{
